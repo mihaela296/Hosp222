@@ -14,14 +14,21 @@ namespace HospitalD
         public AddEditMedicalProcedurePage(MedicalProcedures selectedProcedure = null)
         {
             InitializeComponent();
-            
-            _currentProcedure = selectedProcedure ?? new MedicalProcedures();
-            
+
+            // Создаем новый экземпляр контекста для этой страницы
+            _db = new HospitalDRmEntities();
+
             if (selectedProcedure != null)
             {
+                // Загружаем сущность заново в новом контексте
+                _currentProcedure = _db.MedicalProcedures.Find(selectedProcedure.ID_Procedure);
                 TitleTextBlock.Text = "Редактирование процедуры";
             }
-            
+            else
+            {
+                _currentProcedure = new MedicalProcedures();
+            }
+
             LoadData();
         }
 
@@ -55,15 +62,15 @@ namespace HospitalD
                 }
 
                 _db.SaveChanges();
-                
-                MessageBox.Show("Данные сохранены успешно!", "Успех", 
+
+                MessageBox.Show("Данные сохранены успешно!", "Успех",
                     MessageBoxButton.OK, MessageBoxImage.Information);
-                
+
                 NavigationService.GoBack();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка: {ex.Message}", 
+                MessageBox.Show($"Ошибка: {ex.InnerException?.Message ?? ex.Message}",
                     "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
@@ -72,28 +79,28 @@ namespace HospitalD
         {
             if (string.IsNullOrWhiteSpace(NameTextBox.Text))
             {
-                MessageBox.Show("Введите название процедуры!", "Ошибка", 
+                MessageBox.Show("Введите название процедуры!", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             if (StaffComboBox.SelectedItem == null)
             {
-                MessageBox.Show("Выберите ответственного сотрудника!", "Ошибка", 
+                MessageBox.Show("Выберите ответственного сотрудника!", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             if (!int.TryParse(DurationTextBox.Text, out int duration) || duration <= 0)
             {
-                MessageBox.Show("Введите корректную продолжительность (целое число > 0)!", "Ошибка", 
+                MessageBox.Show("Введите корректную продолжительность (целое число > 0)!", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             if (!decimal.TryParse(CostTextBox.Text, out decimal cost) || cost <= 0)
             {
-                MessageBox.Show("Введите корректную стоимость (число > 0)!", "Ошибка", 
+                MessageBox.Show("Введите корректную стоимость (число > 0)!", "Ошибка",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }

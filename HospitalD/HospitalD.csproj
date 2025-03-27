@@ -219,8 +219,14 @@
     <Compile Include="AddEditDepartmentPage.xaml.cs">
       <DependentUpon>AddEditDepartmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddEditDiagnosisPage.xaml.cs">
+      <DependentUpon>AddEditDiagnosisPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddEditMedicalProcedurePage.xaml.cs">
       <DependentUpon>AddEditMedicalProcedurePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditMedicationPage.xaml.cs">
+      <DependentUpon>AddEditMedicationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddEditPatientPage.xaml.cs">
       <DependentUpon>AddEditPatientPage.xaml</DependentUpon>
@@ -313,7 +319,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AddEditDiagnosisPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddEditMedicalProcedurePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditMedicationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

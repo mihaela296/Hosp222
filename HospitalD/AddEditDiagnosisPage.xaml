@@ -1,11 +1,11 @@
-﻿<Page x:Class="HospitalD.AddEditMedicalProcedurePage"
+﻿<Page x:Class="HospitalD.AddEditDiagnosisPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="600"
-      Title="AddEditMedicalProcedurePage" Background="#B2EBF2">
+      Title="AddEditDiagnosisPage" Background="#B2EBF2">
 
     <Grid>
         <Border CornerRadius="10" Background="White" Padding="20" Margin="20">
@@ -15,25 +15,19 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                
+
                 <TextBlock x:Name="TitleTextBlock" Grid.Row="0" 
-                           Text="Добавление медицинской процедуры"
+                           Text="Добавление диагноза"
                            FontSize="18" FontWeight="Bold" 
                            HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                
+
                 <StackPanel Grid.Row="1">
-                    <TextBlock Text="Название процедуры*:" Margin="0,5"/>
+                    <TextBlock Text="Название диагноза*:" Margin="0,5"/>
                     <TextBox x:Name="NameTextBox" Margin="0,0,0,10"/>
-                    
-                    <TextBlock Text="Ответственный сотрудник*:" Margin="0,5"/>
-                    <ComboBox x:Name="StaffComboBox" DisplayMemberPath="FullName" 
-                              SelectedValuePath="ID_Staff" Margin="0,0,0,10"/>
-                    
-                    <TextBlock Text="Продолжительность (мин)*:" Margin="0,5"/>
-                    <TextBox x:Name="DurationTextBox" Margin="0,0,0,10"/>
-                    
-                    <TextBlock Text="Стоимость (руб)*:" Margin="0,5"/>
-                    <TextBox x:Name="CostTextBox" Margin="0,0,0,10"/>
+
+                    <TextBlock Text="Отделение*:" Margin="0,5"/>
+                    <ComboBox x:Name="DepartmentComboBox" DisplayMemberPath="Name" 
+                              SelectedValuePath="ID_Department" Margin="0,0,0,10"/>
                 </StackPanel>
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">

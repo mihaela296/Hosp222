@@ -1,43 +1,78 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace HospitalD
 {
-    /// <summary>
-    /// Логика взаимодействия для DepartmentsPage.xaml
-    /// </summary>
     public partial class DiagnosesPage : Page
     {
+        private HospitalDRmEntities _db = new HospitalDRmEntities();
+
         public DiagnosesPage()
         {
             InitializeComponent();
-            DiagnosesDataGrid.ItemsSource = new HospitalDRmEntities().Diagnoses.ToList();
+            LoadDiagnoses();
         }
+
+        private void LoadDiagnoses()
+        {
+            // Явно загружаем связанные данные отделений
+            DiagnosesDataGrid.ItemsSource = _db.Diagnoses
+                .Include(d => d.Departments)
+                .AsNoTracking()
+                .ToList();
+        }
+
         private void ButtonEdit_OnClick(object sender, RoutedEventArgs e)
         {
-
+            var selectedDiagnosis = DiagnosesDataGrid.SelectedItem as Diagnoses;
+            if (selectedDiagnosis != null)
+            {
+                NavigationService.Navigate(new AddEditDiagnosisPage(selectedDiagnosis));
+            }
+            else
+            {
+                MessageBox.Show("Выберите диагноз для редактирования!",
+                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddEditDiagnosisPage());
         }
+
         private void ButtonDel_OnClick(object sender, RoutedEventArgs e)
         {
+            var selectedDiagnosis = DiagnosesDataGrid.SelectedItem as Diagnoses;
+            if (selectedDiagnosis == null)
+            {
+                MessageBox.Show("Выберите диагноз для удаления!",
+                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
+            if (MessageBox.Show($"Удалить диагноз '{selectedDiagnosis.Name}'?", "Подтверждение",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            try
+            {
+                _db.Diagnoses.Remove(selectedDiagnosis);
+                _db.SaveChanges();
+                LoadDiagnoses();
+                MessageBox.Show("Диагноз успешно удален!",
+                    "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при удалении: {ex.InnerException?.Message ?? ex.Message}",
+                    "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

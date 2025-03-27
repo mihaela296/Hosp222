@@ -17,12 +17,13 @@
         <DataGrid Grid.Row="0" Name="DiagnosesDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название диагноза" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Отделение" Binding="{Binding ID_Department}"/>
+                <DataGridTextColumn Header="Отделение" Binding="{Binding Departments.Name}"/>
 
                 <DataGridTemplateColumn Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Name="ButtonEdit" Content="Редактировать" Click="ButtonEdit_OnClick" HorizontalAlignment="Left" Width="300" Background="Aqua"/>
+                            <Button Name="ButtonEdit" Content="Редактировать" Click="ButtonEdit_OnClick" 
+                            HorizontalAlignment="Left" Width="300" Background="Aqua"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

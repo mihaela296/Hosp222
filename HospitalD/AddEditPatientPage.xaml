@@ -40,8 +40,8 @@
 
                 <!-- Кнопки -->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
-                    <Button Content="Сохранить" Click="SavePatient_Click" Width="100" Margin="0,0,10,0"/>
-                    <Button Content="Отмена" Click="Cancel_Click" Width="100"/>
+                    <Button Content="Сохранить" Click="SavePatient_Click" Width="100" Margin="0,0,10,0" Background="Aqua"/>
+                    <Button Content="Отмена" Click="Cancel_Click" Width="100" Background="Aqua"/>
                 </StackPanel>
             </Grid>
         </Border>
