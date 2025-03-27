@@ -10,6 +10,7 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Style="{StaticResource StackPanelAdmin}">
             <Button Content="Отделения" Style="{StaticResource MenuButtonStyle}" Click="Departments_Click"/>
+            <Button Content="Должности" Style="{StaticResource MenuButtonStyle}" Click="Positions_Click"/>
             <Button Content="Сотрудники" Style="{StaticResource MenuButtonStyle}" Click="Staff_Click"/>
             <Button Content="Пациенты" Style="{StaticResource MenuButtonStyle}" Click="Patients_Click"/>
             <Button Content="Диагнозы" Style="{StaticResource MenuButtonStyle}" Click="Diagnoses_Click"/>
@@ -21,4 +22,3 @@
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </DockPanel>
 </Window>
-

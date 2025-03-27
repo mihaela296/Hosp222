@@ -231,6 +231,9 @@
     <Compile Include="AddEditPatientPage.xaml.cs">
       <DependentUpon>AddEditPatientPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddEditPositionPage.xaml.cs">
+      <DependentUpon>AddEditPositionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddEditStaffPage.xaml.cs">
       <DependentUpon>AddEditStaffPage.xaml</DependentUpon>
     </Compile>
@@ -300,6 +303,9 @@
     <Compile Include="Positions.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PositionsPage.xaml.cs">
+      <DependentUpon>PositionsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RegPage.xaml.cs">
       <DependentUpon>RegPage.xaml</DependentUpon>
     </Compile>
@@ -332,6 +338,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddEditPatientPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddEditPositionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -388,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PatientsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

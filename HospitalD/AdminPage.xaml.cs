@@ -1,22 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace HospitalD
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminPage.xaml
-    /// </summary>
     public partial class AdminPage : Window
     {
         private Users _user;
@@ -29,6 +14,11 @@ namespace HospitalD
         private void Departments_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new DepartmentsPage());
+        }
+
+        private void Positions_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new PositionsPage());
         }
 
         private void Staff_Click(object sender, RoutedEventArgs e)
@@ -55,11 +45,11 @@ namespace HospitalD
         {
             MainFrame.Navigate(new MedicationsPage());
         }
+
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
             new MainWindow().Show();
             this.Close();
         }
-
     }
 }
