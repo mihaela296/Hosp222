@@ -17,7 +17,7 @@
         <DataGrid Grid.Row="0" Name="MedicationsDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название лекарств" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Дневная доза" Binding="{Binding DailyDosage}"/>
+                <DataGridTextColumn Header="Количество в день" Binding="{Binding DailyDosage}"/>
                 <DataGridTextColumn Header="Продолжительность приёма" Binding="{Binding Duration}"/>
 
                 <DataGridTemplateColumn Width="*">

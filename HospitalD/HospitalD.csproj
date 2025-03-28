@@ -219,8 +219,8 @@
     <Compile Include="AddEditDepartmentPage.xaml.cs">
       <DependentUpon>AddEditDepartmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddEditDiagnosisPage.xaml.cs">
-      <DependentUpon>AddEditDiagnosisPage.xaml</DependentUpon>
+    <Compile Include="AddEditDiagnosesPage.xaml.cs">
+      <DependentUpon>AddEditDiagnosesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AddEditMedicalProcedurePage.xaml.cs">
       <DependentUpon>AddEditMedicalProcedurePage.xaml</DependentUpon>
@@ -325,7 +325,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AddEditDiagnosisPage.xaml">
+    <Page Include="AddEditDiagnosesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

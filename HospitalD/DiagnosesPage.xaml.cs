@@ -30,7 +30,7 @@ namespace HospitalD
             var selectedDiagnosis = DiagnosesDataGrid.SelectedItem as Diagnoses;
             if (selectedDiagnosis != null)
             {
-                NavigationService.Navigate(new AddEditDiagnosisPage(selectedDiagnosis));
+                NavigationService.Navigate(new AddEditDiagnosesPage(selectedDiagnosis));
             }
             else
             {
@@ -41,7 +41,7 @@ namespace HospitalD
 
         private void ButtonAdd_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddEditDiagnosisPage());
+            NavigationService.Navigate(new AddEditDiagnosesPage());
         }
 
         private void ButtonDel_OnClick(object sender, RoutedEventArgs e)

@@ -6,12 +6,12 @@ using System.Windows.Controls;
 
 namespace HospitalD
 {
-    public partial class AddEditDiagnosisPage : Page
+    public partial class AddEditDiagnosesPage : Page
     {
         private Diagnoses _currentDiagnosis;
         private HospitalDRmEntities _db;
 
-        public AddEditDiagnosisPage(Diagnoses selectedDiagnosis = null)
+        public AddEditDiagnosesPage(Diagnoses selectedDiagnosis = null)
         {
             InitializeComponent();
 
